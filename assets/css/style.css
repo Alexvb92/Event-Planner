@@ -1,0 +1,17 @@
+html {
+	background: linear-gradient(45deg, #ec407a, #ab47bc);
+	background-repeat:no-repeat;
+    background-size:cover;
+    height: 100%;
+}
+
+.container {
+	background-color: rgba(255,255,255,0.4);
+	margin: 20px;
+	padding: 30px;
+}
+
+form {
+	padding: 10px;
+	text-align: right;
+}
