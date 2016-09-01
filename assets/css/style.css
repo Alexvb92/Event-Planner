@@ -7,11 +7,19 @@ html {
 
 .container {
 	background-color: rgba(255,255,255,0.4);
-	margin: 20px;
-	padding: 30px;
+	margin-top: 100px;
+	padding-top: 30px;
+	padding-left: 30px;
+	padding-right: 30px;
+	padding-bottom: 10px;
 }
 
 form {
 	padding: 10px;
 	text-align: right;
+	margin-bottom: 25px;
+}
+
+submitButton {
+
 }
