@@ -1,17 +1,29 @@
-html {
+/*html {
 	background: linear-gradient(45deg, #ec407a, #ab47bc);
 	background-repeat:no-repeat;
     background-size:cover;
     height: 100%;
-}
+}*/
 
-.container {
+/*.container {
 	background-color: rgba(255,255,255,0.4);
 	margin-top: 100px;
 	padding-top: 30px;
 	padding-left: 30px;
 	padding-right: 30px;
 	padding-bottom: 10px;
+}*/
+
+#startContainer {
+	height: 200px;
+	width: 100%;
+	padding: 50px 30px;
+	background-color: rgba(255,255,255,0.95);
+    position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
 }
 
 form {
@@ -22,4 +34,43 @@ form {
 
 submitButton {
 
+}
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#startContainer {
+	height: 200px;
+	width: 100%;
+	padding: 50px 30px;
+	background-color: rgba(255,255,255,0.95);
+    position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+}
+
+input {
+	margin-bottom: 0px;
+}
+
+h6 {
+	margin-bottom: 25px;
+}
+
+#mapStart {
+	height: 100%;
+}
+
+#mapMain {
+	height: 250px;
+	width: 250px;
+}
+
+#tripHeader {
+	margin-left: 20px;
 }
