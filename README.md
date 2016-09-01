@@ -1,2 +1,3 @@
 # Event-Planner
-Group Project One
+
+Team Eight Group Project
