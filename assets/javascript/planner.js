@@ -13,13 +13,9 @@ firebase.initializeApp(config);
 database = firebase.database();
 
 $('#startButton').on('click', function () {
-	destination = $('#destination').val().trim();
+	destination = $('#pac-input').val().trim();
 	startDate = $('#startDate').val();  //might need adjustment for moment.js
 	endDate = $('#endDate').val(); //might need adjustment for moment.js
-
-	$('#mapStart').fadeOut(2000);
-	$('#startContainer').fadeOut(2000);
-
    })
 
 });
