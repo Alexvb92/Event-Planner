@@ -12,6 +12,7 @@
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 
 </head>
 <body>
@@ -19,7 +20,7 @@
 <div class="navbar-fixed">
 	<nav>
 		<div class="nav-wrapper orange darken-4">
-			<a id="tripHeader"><span class="orange-text text-accent-1">to go</span> Your trip to <span id="destination">[Destination]</span> from <span id="startDate">[MM/DD/YY]</span> to <span id="endDate">[MM/DD/YY]</span></a>
+			<a id="tripHeader"><span class="orange-text text-accent-1">to go</span> Your trip to <span id="destinationDisplay">[Destination]</span> from <span id="startDateDisplay">[MM/DD/YY]</span> to <span id="endDateDisplay">[MM/DD/YY]</span></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="about.html">About</a></li>
 				<li><a class="waves-effect waves-light btn orange darken-1">Save trip</a></li>
@@ -39,34 +40,15 @@
 		    	</ul>
 		    </div>
 		    <div id="planner" class="col s12">
+		    	<!-- Sample Div -->
+		    	<!--
 		    	<div class="card">
 					<div class="card-content black-text">
 						<span class="card-title">Day 1</span>
 						<p><span id="day1Weather">High | Low | Conditions</span></p>
 						<p>The day's activities</p>
 					</div>
-				</div>
-				<div class="card">
-					<div class="card-content black-text">
-						<span class="card-title">Day 2</span>
-						<p><span id="day1Weather">High | Low | Conditions</span></p>
-						<p>The day's activities</p>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-content black-text">
-						<span class="card-title">Day 3</span>
-						<p><span id="day1Weather">High | Low | Conditions</span></p>
-						<p>The day's activities</p>
-					</div>
-				</div>
-				<div class="card">
-					<div class="card-content black-text">
-						<span class="card-title">Day 4</span>
-						<p><span id="day1Weather">High | Low | Conditions</span></p>
-						<p>The day's activities</p>
-					</div>
-				</div>
+				</div> -->
 		    </div>
 		    <div id="ideas" class="col s12">
 			    <div class="card">
