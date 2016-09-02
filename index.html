@@ -1,37 +1,53 @@
 <!DOCTYPE html>
+<html>
 <head>
-	<title>Event Planner</title>
 
-	<!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-	<link href="assets/css/style.css" rel="stylesheet">
+<title>to go - The Trip Planner</title>
 
-	<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-	<script src="assets/javascript/planner.js"></script>
+<meta name="viewport" content="initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
 </head>
 <body>
-	<div class="container" id="startContainer">
-	    <div class="row valign-wrapper">
-	        <div class="col s2"><h6 class="center-align">I want to go to </h6></div>
-	        <div class="col s4">
-	            <input id="pac-input" type="text" class="center-align" class='controls' placeholder="Search Box">
-	        </div>
-	        <div class="col s1"><h6 class="center-align">from</h6></div>
-	        <div class="col s2">
-	            <input id="startDate" type="date" class="datepicker center-align">
-	        </div>
-	        <div class="col s1"><h6 class="center-align">to</h6></div>
-	        <div class="col s2">
-	            <input id="endDate" type="date" class="datepicker center-align">
-	        </div>
-	    </div>
-	    <div class="row">
-	        <div class="col s12 center-align">
-	            <a id="startButton" class="waves-effect waves-light btn indigo darken-4">Start</a>
-	        </div>   
-	    </div>
-	</div>
+	<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper indigo darken-4">
+            <a id="tripHeader"><span class="indigo-text text-accent-1">to go</span> The Trip Planner</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="about.html">About</a></li>
+                <li><a class="waves-effect waves-light btn indigo darken-1">Already have a trip?</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
+
+<div class="container" id="startContainer">
+    <div class="row valign-wrapper">
+        <div class="col s2"><h6 class="center-align">I want to go to </h6></div>
+        <div class="col s4">
+            <input id="pac-input" type="text" class="center-align">
+        </div>
+        <div class="col s1"><h6 class="center-align">from</h6></div>
+        <div class="col s2">
+            <input id="startDate" type="date" class="datepicker center-align">
+        </div>
+        <div class="col s1"><h6 class="center-align">to</h6></div>
+        <div class="col s2">
+            <input id="endDate" type="date" class="datepicker center-align">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col s12 center-align">
+            <a id="startButton" class="waves-effect waves-light btn indigo darken-4">Start</a>
+        </div>   
+    </div>
+</div>
 
 	<div id="mapStart"></div>
 
@@ -70,7 +86,7 @@
         // Create the search box and link it to the UI element.
         var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
-        $('#pac-input').removeAttr(style)
+        $('#pac-input').removeAttr(style) //clears google's position:absolute and top:0 left: 0
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
         // Bias the SearchBox results towards current map's viewport.
@@ -131,8 +147,6 @@
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places&callback=initAutocomplete"
          async defer></script>
-    </script>
-
-        
+<script src="assets/javascript/planner.js"></script>
 </body>
 </html>
