@@ -11,17 +11,18 @@
 
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
 
 </head>
 <body>
 
 <div class="navbar-fixed">
 	<nav>
-		<div class="nav-wrapper indigo darken-4">
-			<a id="tripHeader"><span class="indigo-text text-accent-1">to go</span> Your trip to [Destination] from [MM/DD/YY] to [MM/DD/YY]</a>
+		<div class="nav-wrapper orange darken-4">
+			<a id="tripHeader"><span class="orange-text text-accent-1">to go</span> Your trip to <span id="destination">[Destination]</span> from <span id="startDate">[MM/DD/YY]</span> to <span id="endDate">[MM/DD/YY]</span></a>
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="about.html">About</a></li>
-				<li><a class="waves-effect waves-light btn indigo darken-1">Save trip</a></li>
+				<li><a class="waves-effect waves-light btn orange darken-1">Save trip</a></li>
 			</ul>
 		</div>
 	</nav>
