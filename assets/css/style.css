@@ -37,6 +37,15 @@ h6 {
 	margin-left: 20px;
 }
 
+#newEntry {
+	overflow: auto;
+}
+
+#tBody {
+	height: 437px;
+	width: 533px;
+	overflow: scroll;
+
 .dayHeader {
 	font-weight: 500;
 }

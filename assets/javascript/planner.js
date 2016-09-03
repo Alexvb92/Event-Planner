@@ -70,4 +70,16 @@ $.ajax({url: URL, method: 'GET'}).done(function(response) {
 	}
 });
 
+var checkCounter = 5;
+$(document).keypress(function(e) {
+  if(e.which == 13) {
+    textInput = $('#text-input').val().trim();
+	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label for="test' + checkCounter + '">' + textInput + '</label></p>');
+	checkCounter++;
+	$('#tBody').prepend(newLine);
+	$('#text-input').val("");
+	console.log(checkCounter);
+  }
+});
+
 // });
