@@ -12,10 +12,12 @@
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 
 </head>
 <body>
-	<div class="navbar-fixed">
+
+<div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper orange darken-4">
             <a id="tripHeader"><span class="orange-text text-accent-1">to go</span> The Trip Planner</a>
@@ -49,9 +51,8 @@
     </div>
 </div>
 
-	<div id="mapStart"></div>
+<div id="mapStart"></div>
 
-    <div id="map"></div>
     <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
@@ -96,8 +97,9 @@
       }
 
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places&callback=initAutocomplete"
-         async defer></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places&callback=initAutocomplete" async defer></script>
 <script src="assets/javascript/planner.js"></script>
+
 </body>
 </html>
