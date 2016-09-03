@@ -26,22 +26,25 @@ $('#startButton').on('click', function () {
 	startDate = $('#startDate').val();
 	endDate = $('#endDate').val();
 
-//AJAX call to retrieve coordinates of string value google search	(obj > geometry > location for coords)
-	var city1 = localStorage.getItem('destination')
-	var key1 = 'AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA'
-	var URL1 =  "https://maps.googleapis.com/maps/api/geocode/json?address=" + city1 + "&key=" + key1;
+	// retrieve coordinates of string value google search (response1.results[0].geometry.location. for coords)
+	var key1 = 'AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA';
+	var URL1 =  "https://maps.googleapis.com/maps/api/geocode/json?address=" + destination + "&key=" + key1;
+	
 	// ajax call
-	$.ajax({url: URL1, method: 'GET'}).done(function(response1) {
-				
-		console.log(response1);
+	$.ajax({url: URL1, method: 'GET'}).done(function(response1) {	
+		// console.log(response1);
+		localStorage.setItem("destinationLat", response1.results[0].geometry.location.lat);
+		localStorage.setItem("destinationLong", response1.results[0].geometry.location.lng);
 
 	});
 
 	// switch to firebase eventually
-	localStorage.clear();
+	// localStorage.clear();
 	localStorage.setItem("destination", destination); 
 	localStorage.setItem("startDate", startDate);
 	localStorage.setItem("endDate", endDate);
+
+	// debugger;
 })
 
 // make this only run on a certain page?
@@ -51,15 +54,13 @@ $("#startDateDisplay").html(moment(localStorage.getItem("startDate")).format("M/
 $("#endDateDisplay").html(moment(localStorage.getItem("endDate")).format("M/D/YY"));
 
 // populates main body planner with dynamic days and weather
-var city = "37.8,-122.4";
+var city = localStorage.getItem("destinationLat") + "," + localStorage.getItem("destinationLong");
 var key = "1d150de371b4d1a3"
 var URL = "http://api.wunderground.com/api/" + key + "/forecast10day/geolookup/q/" + city + ".json";
 
 // ajax call
-$.ajax({url: URL, method: 'GET'}).done(function(response) {
-			
+$.ajax({url: URL, method: 'GET'}).done(function(response) {	
 	// console.log(response);
-
 	days = moment(localStorage.getItem("endDate")).diff(moment(localStorage.getItem("startDate")), "days") + 1;
 
 	for (var i = 1; i <= days; i++) {
