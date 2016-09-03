@@ -26,6 +26,17 @@ $('#startButton').on('click', function () {
 	startDate = $('#startDate').val();
 	endDate = $('#endDate').val();
 
+//AJAX call to retrieve coordinates of string value google search	(obj > geometry > location for coords)
+	var city1 = localStorage.getItem('destination')
+	var key1 = 'AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA'
+	var URL1 =  "https://maps.googleapis.com/maps/api/geocode/json?address=" + city1 + "&key=" + key1;
+	// ajax call
+	$.ajax({url: URL1, method: 'GET'}).done(function(response1) {
+				
+		console.log(response1);
+
+	});
+
 	// switch to firebase eventually
 	localStorage.clear();
 	localStorage.setItem("destination", destination); 
@@ -68,18 +79,6 @@ $.ajax({url: URL, method: 'GET'}).done(function(response) {
 
 		$("#planner").append(newDay);
 	}
-});
-
-var checkCounter = 5;
-$(document).keypress(function(e) {
-  if(e.which == 13) {
-    textInput = $('#text-input').val().trim();
-	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label for="test' + checkCounter + '">' + textInput + '</label></p>');
-	checkCounter++;
-	$('#tBody').prepend(newLine);
-	$('#text-input').val("");
-	console.log(checkCounter);
-  }
 });
 
 // });
