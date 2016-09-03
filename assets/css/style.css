@@ -36,3 +36,13 @@ h6 {
 #tripHeader {
 	margin-left: 20px;
 }
+
+#newEntry {
+	overflow: auto;
+}
+
+#tBody {
+	height: 437px;
+	width: 533px;
+	overflow: scroll;
+}

@@ -35,7 +35,7 @@
 		    <div class="col s12">
 		    	<ul class="tabs">
 			        <li class="tab col s3"><a href="#planner">Planner</a></li>
-			        <li class="tab col s3"><a href="#ideas">Ideas</a></li>
+			        <!-- <li class="tab col s3"><a href="#ideas">Ideas</a></li> -->
 			        <li class="tab col s3"><a href="#toDo">To Do</a></li>
 		    	</ul>
 		    </div>
@@ -50,19 +50,33 @@
 					</div>
 				</div> -->
 		    </div>
-		    <div id="ideas" class="col s12">
+		    <!-- <div id="ideas" class="col s12">
 			    <div class="card">
 					<div class="card-content black-text">
 						<p>Copy the todo list functionality from in class?</p>
 					</div>
 				</div>
-		    </div>
+		    </div> -->
 		    <div id="toDo" class="col s12">
-		    	<div class="card">
+		    	<div class="toDo-entry">
 					<div class="card-content black-text">
-						<p>Copy the todo list functionality from in class?</p>
+						<div class="input-field col s12">
+				          <input id="text-input" type="text" class="validate">
+				          <label for="text-input">What else are you thinking about?</label>
+				        </div>
 					</div>
 				</div>
+
+		    	<div class="row">
+					<div">
+						<table>
+					        <tbody id="tBody" class="col s6">
+					        
+					        </tbody>
+					    </table>
+					</div>
+				</div>
+
 		    </div>
 		</div>
 	</div>
