@@ -18,6 +18,7 @@ var destination = "";
 var startDate = "";
 var endDate = "";
 var days = "";
+var city = "";
 
 // button clicks
 $('#startButton').on('click', function () {
@@ -38,28 +39,39 @@ $("#destinationDisplay").html(localStorage.getItem("destination"));
 $("#startDateDisplay").html(moment(localStorage.getItem("startDate")).format("M/D/YY"));
 $("#endDateDisplay").html(moment(localStorage.getItem("endDate")).format("M/D/YY"));
 
-// populates main body planner
-days = moment(localStorage.getItem("endDate")).diff(moment(localStorage.getItem("startDate")), "days") + 1;
+// populates main body planner with dynamic days and weather
+var city = "37.8,-122.4";
+var key = "1d150de371b4d1a3"
+var URL = "http://api.wunderground.com/api/" + key + "/forecast10day/geolookup/q/" + city + ".json";
 
-for (var i = 1; i <= days; i++) {
-	var newDay = $("<div>");
-	var newDayContent = $("<div>");
-	var calendarDay = moment(localStorage.getItem("startDate")).add([i] - 1, "days").format("M/D/YY");
-	newDay.addClass("card");
-	newDayContent.addClass("card-content black-text");
-	newDayContent.append("<span class='card-title'>Day " + [i] + " - " + calendarDay + "</span>");
-	newDayContent.append("<p><span id='day" + [i] + "Weather'> High | Low | Conditions</span></p>");
-	newDayContent.append("<p>The day's activities</p>");
-	newDay.append(newDayContent);
+// ajax call
+$.ajax({url: URL, method: 'GET'}).done(function(response) {
+			
+	// console.log(response);
 
-	$("#planner").append(newDay);
-}
+	days = moment(localStorage.getItem("endDate")).diff(moment(localStorage.getItem("startDate")), "days") + 1;
+
+	for (var i = 1; i <= days; i++) {
+		var newDay = $("<div>");
+		var newDayContent = $("<div>");
+		var calendarDay = moment(localStorage.getItem("startDate")).add([i] - 1, "days").format("M/D/YY");
+		var high = response.forecast.simpleforecast.forecastday[i].high.fahrenheit;
+		var low = response.forecast.simpleforecast.forecastday[i].low.fahrenheit;
+		var forecast = response.forecast.simpleforecast.forecastday[i].conditions;
+		var weekday = moment(calendarDay).format("dddd");
+		newDay.addClass("card");
+		newDayContent.addClass("card-content");
+		newDayContent.append("<span class='card-title'><span class='orange-text text-darken-4 dayHeader'>Day " + [i] + "</span><span class='black-text'> " + weekday + " - " + calendarDay + "</span>");
+		newDayContent.append("<p><span id='day" + [i] + "Weather'>High: " + high + "&deg;F | Low: " + low + "&deg;F | Forecast: " + forecast + "</span></p>");
+		newDayContent.append("<p>The day's activities</p>");
+		newDay.append(newDayContent);
+
+		$("#planner").append(newDay);
+	}
+});
 
 var checkCounter = 5;
 $(document).keypress(function(e) {
-	
-
-
   if(e.which == 13) {
     textInput = $('#text-input').val().trim();
 	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label for="test' + checkCounter + '">' + textInput + '</label></p>');
