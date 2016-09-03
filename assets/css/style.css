@@ -36,3 +36,7 @@ h6 {
 #tripHeader {
 	margin-left: 20px;
 }
+
+.dayHeader {
+	font-weight: 500;
+}
