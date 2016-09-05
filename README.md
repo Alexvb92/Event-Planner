@@ -12,11 +12,11 @@ futuregeese
 * **Nicolas Caceres** [@mr-attack](https://github.com/mr-attack)
 
 ## Technologies
-HTML
-CSS
-JS
-jQuery
-Firebase
+* HTML
+* CSS
+* JS
+* jQuery
+* Firebase
 
 ## APIs
 * Google Maps
