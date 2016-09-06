@@ -71,16 +71,30 @@ $.ajax({url: URL, method: 'GET'}).done(function(response) {
 });
 
 var checkCounter = 5;
+toDoCount = 0;
 $(document).keypress(function(e) {
   if(e.which == 13) {
     textInput = $('#text-input').val().trim();
 	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label for="test' + checkCounter + '">' + textInput + '</label></p>');
-	checkCounter++;
+	newLine.attr("toDo", toDoCount);
+	newLine.attr("id", "item-" + toDoCount);
 	$('#tBody').prepend(newLine);
 	$('#text-input').val("");
-	$(newLine).prepend('<a id="remove" class="col s1" href="#">x</a>');
-	console.log(checkCounter);
+
+	XButton = $('<button id="remove" class="col s1">x</button>');
+	XButton.attr("toDo", toDoCount);
+	$(newLine).prepend(XButton);
+	checkCounter++;
+	toDoCount++;
+	console.log(newLine.attr("toDo"))
   }
 });
+
+$(document.body).on('click', '#remove', function () {
+	var todoNumber = $(this).attr("toDo");
+	$("#item-" + todoNumber).remove();
+	console.log($(this).attr("toDo"))
+
+})
 
 // });
