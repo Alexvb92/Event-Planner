@@ -17,8 +17,6 @@ var database = firebase.database();
 var destination = "";
 var startDate = "";
 var endDate = "";
-// var days = "";
-// var city = "";
 
 // button clicks
 $('#startButton').on('click', function () {
@@ -66,22 +64,33 @@ if (localStorage.getItem("startDate") > moment().add(10, "days").format("YYYY-MM
 
 		$.ajax({url: weatherPlannerURL, method: 'GET'}).done(function(response) {	
 			// console.log(response);
-			high = response.trip.temp_high.avg.F;
-			low = response.trip.temp_low.avg.F;
+			var high = response.trip.temp_high.avg.F;
+			var low = response.trip.temp_low.avg.F;
 
 			// following code will go in here?
+
+			var newDay = $("<div>");
+			var newDayContent = $("<div>");
+			var calendarDay = moment(localStorage.getItem("startDate")).add([i], "days").format("dddd - M/D/YY");
+			newDay.addClass("card");
+			newDayContent.addClass("card-content");
+			newDayContent.append("<span class='card-title'><span class='orange-text text-darken-4 dayHeader'>Day " + [i] + "</span><span class='black-text'> " + calendarDay + "</span>");
+			newDayContent.append("<p><span id='day" + [i] + "Weather'>Avg High: " + high + "&deg;F | Avg Low: " + low + "&deg;F</span></p>");
+			newDayContent.append("<p>The day's activities</p>");
+			newDay.append(newDayContent);
+			$("#planner").append(newDay);
 		})
 
-		var newDay = $("<div>");
-		var newDayContent = $("<div>");
-		var calendarDay = moment(localStorage.getItem("startDate")).add([i] - 1, "days").format("dddd - M/D/YY");
-		newDay.addClass("card");
-		newDayContent.addClass("card-content");
-		newDayContent.append("<span class='card-title'><span class='orange-text text-darken-4 dayHeader'>Day " + [i] + "</span><span class='black-text'> " + calendarDay + "</span>");
-		newDayContent.append("<p><span id='day" + [i] + "Weather'>Avg High: " + "high" + "&deg;F | Avg Low: " + "low" + "&deg;F</span></p>");
-		newDayContent.append("<p>The day's activities</p>");
-		newDay.append(newDayContent);
-		$("#planner").append(newDay);
+		// var newDay = $("<div>");
+		// var newDayContent = $("<div>");
+		// var calendarDay = moment(localStorage.getItem("startDate")).add([i] - 1, "days").format("dddd - M/D/YY");
+		// newDay.addClass("card");
+		// newDayContent.addClass("card-content");
+		// newDayContent.append("<span class='card-title'><span class='orange-text text-darken-4 dayHeader'>Day " + [i] + "</span><span class='black-text'> " + calendarDay + "</span>");
+		// newDayContent.append("<p><span id='day" + [i] + "Weather'>Avg High: " + "high" + "&deg;F | Avg Low: " + "low" + "&deg;F</span></p>");
+		// newDayContent.append("<p>The day's activities</p>");
+		// newDay.append(newDayContent);
+		// $("#planner").append(newDay);
 	}
 } 
 
@@ -104,5 +113,49 @@ else {
 		}
 	});
 }
+
+// database.ref().on('value', function(snapshot) {
+// 	console.log(snapshot);
+
+// }, function (errorObject) {
+
+// 		// In case of error this will print the error
+// 	  	console.log("The read failed: " + errorObject.code);
+	
+// });
+
+var checkCounter = 5;
+toDoCount = 0;
+$(document).keypress(function(e) {
+  if(e.which == 13) {
+    textInput = $('#text-input').val().trim();
+	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label for="test' + checkCounter + '">' + textInput + '</label></p>');
+	newLine.attr("toDo", toDoCount);
+	newLine.attr("id", "item-" + toDoCount);
+	$('#tBody').prepend(newLine);
+	$('#text-input').val("");
+
+	XButton = $('<button id="remove" class="col s1">x</button>');
+	XButton.removeClass("col s1");
+	XButton.addClass("xyz cols1");
+	XButton.attr("toDo", toDoCount);
+	$(newLine).prepend(XButton);
+	checkCounter++;
+	toDoCount++;
+	console.log(newLine.attr("toDo"));
+
+	database.ref().set({
+		toDo: newLine
+	});
+  }
+});
+
+$(document.body).on('click', '#remove', function () {
+	var todoNumber = $(this).attr("toDo");
+	$("#item-" + todoNumber).remove();
+
+	console.log($(this).attr("toDo"))
+
+})
 
 // });
