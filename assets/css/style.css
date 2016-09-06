@@ -46,11 +46,19 @@ h6 {
 	height: 437px;
 	width: 533px;
 	overflow: scroll;
+	padding-left: 0px;
+}
 
 .dayHeader {
 	font-weight: 500;
 }
 
-#remove {
-	width: 24px;
+.xyz {
+	color: #fc9225;
+    margin-right: 10px;
+    width: 25px;
+    padding-left: 7px;
+    padding-top: 1px;
+    height: 21px;
 }
+

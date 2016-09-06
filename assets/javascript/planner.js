@@ -70,6 +70,16 @@ $.ajax({url: URL, method: 'GET'}).done(function(response) {
 	}
 });
 
+// database.ref().on('value', function(snapshot) {
+// 	console.log(snapshot);
+
+// }, function (errorObject) {
+
+// 		// In case of error this will print the error
+// 	  	console.log("The read failed: " + errorObject.code);
+	
+// });
+
 var checkCounter = 5;
 toDoCount = 0;
 $(document).keypress(function(e) {
@@ -82,17 +92,24 @@ $(document).keypress(function(e) {
 	$('#text-input').val("");
 
 	XButton = $('<button id="remove" class="col s1">x</button>');
+	XButton.removeClass("col s1");
+	XButton.addClass("xyz cols1");
 	XButton.attr("toDo", toDoCount);
 	$(newLine).prepend(XButton);
 	checkCounter++;
 	toDoCount++;
-	console.log(newLine.attr("toDo"))
+	console.log(newLine.attr("toDo"));
+
+	database.ref().set({
+		toDo: newLine
+	});
   }
 });
 
 $(document.body).on('click', '#remove', function () {
 	var todoNumber = $(this).attr("toDo");
 	$("#item-" + todoNumber).remove();
+
 	console.log($(this).attr("toDo"))
 
 })
