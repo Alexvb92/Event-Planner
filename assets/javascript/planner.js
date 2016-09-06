@@ -17,8 +17,6 @@ var database = firebase.database();
 var destination = "";
 var startDate = "";
 var endDate = "";
-var days = "";
-var city = "";
 
 // button clicks
 $('#startButton').on('click', function () {
@@ -115,7 +113,6 @@ else {
 		}
 	});
 }
-
 
 // database.ref().on('value', function(snapshot) {
 // 	console.log(snapshot);
