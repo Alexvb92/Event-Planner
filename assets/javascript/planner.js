@@ -68,6 +68,8 @@ if (localStorage.getItem("startDate") > moment().add(10, "days").format("YYYY-MM
 			// console.log(response);
 			high = response.trip.temp_high.avg.F;
 			low = response.trip.temp_low.avg.F;
+
+			// following code will go in here?
 		})
 
 		var newDay = $("<div>");
