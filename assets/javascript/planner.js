@@ -40,9 +40,9 @@ $('#startButton').on('click', function () {
 
 // make this only run on a certain page?
 // populates nav bar
-$("#destinationDisplay").html(localStorage.getItem("destination"));
+$(".destinationDisplay").html(localStorage.getItem("destination"));
 $(".startDateDisplay").html(moment(localStorage.getItem("startDate")).format("M/D/YY"));
-$("#endDateDisplay").html(moment(localStorage.getItem("endDate")).format("M/D/YY"));
+$(".endDateDisplay").html(moment(localStorage.getItem("endDate")).format("M/D/YY"));
 
 // populates main body planner with dynamic days and weather forecast (or historical weather info)
 var coordinates = localStorage.getItem("destinationLat") + "," + localStorage.getItem("destinationLong");
