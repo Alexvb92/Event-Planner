@@ -107,50 +107,72 @@ else {
 	});
 }
 
-// database.ref().on('value', function(snapshot) {
-// 	console.log(snapshot);
-
-// }, function (errorObject) {
-
-// 		// In case of error this will print the error
-// 	  	console.log("The read failed: " + errorObject.code);
-	
-// });
-
-var checkCounter = 5;
-toDoCount = 0;
-$(document).keypress(function(e) {
-  if(e.which == 13) {
-    textInput = $('#text-input').val().trim();
-	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label for="test' + checkCounter + '">' + textInput + '</label></p>');
-	newLine.attr("toDo", toDoCount);
-	newLine.attr("id", "item-" + toDoCount);
+database.ref().on("child_added", function(childSnapshot) {
+	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + childSnapshot.val().name.checkCounter + '" /><label id="textInput" for="test' + childSnapshot.val().name.checkCounter + '">' + childSnapshot.val().name.textInput + '</label></p>');
 	$('#tBody').prepend(newLine);
-	$('#text-input').val("");
 
 	XButton = $('<button id="remove" class="col s1">x</button>');
 	XButton.removeClass("col s1");
 	XButton.addClass("xyz cols1");
 	XButton.attr("toDo", toDoCount);
 	$(newLine).prepend(XButton);
+
 	checkCounter++;
 	toDoCount++;
-	console.log(newLine.attr("toDo"));
 
-	database.ref().set({
-		toDo: newLine
+	console.log(XButton.attr("toDo"));
+
+
+}, function (errorObject) {
+
+		// In case of error this will print the error
+	  	console.log("The read failed: " + errorObject.code);
+	
+
+	})
+$(document.body).on('click', '#remove', function () {
+		var todoNumber = $(this).attr("toDo");
+		$("#item-" + todoNumber).remove();
+
+		$(this).name.remove();
+
+		
+});
+
+var checkCounter = 5;
+toDoCount = 0;
+var textInput;
+$(document).keypress(function(e) {
+  if(e.which == 13) {
+    textInput = $('#text-input').val().trim();
+    newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label id="textInput" for="test' + checkCounter + '">' + textInput + '</label></p>');
+
+	newLine.attr("toDo", toDoCount);
+	newLine.attr("id", "item-" + toDoCount);
+	$('#text-input').val("");
+
+	checkCounter++;
+	toDoCount++;
+
+	database.ref().push({
+		name: {
+		textInput: textInput,
+		checkCounter: checkCounter,
+		toDo: toDoCount + 1
+	}
 	});
+
   }
 });
 
-$(document.body).on('click', '#remove', function () {
-	var todoNumber = $(this).attr("toDo");
-	$("#item-" + todoNumber).remove();
+$(document.body).on('click', '#test', function () {
+	//need to keep box checked on reload
+	});
 
-	console.log($(this).attr("toDo"))
 
-})
+
 
 $(".button-collapse").sideNav();
+
 
 // });
