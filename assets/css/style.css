@@ -67,16 +67,22 @@ h6 {
     height: 21px;
 }
 
-     .pacinput2 {
-        background-color: orange;
-        font-family: Roboto;
-        font-size: 16px;
-        font-weight: 300;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 100%;
-        margin-top: 5px;
-        position: fixed;
-        color: white;
-       
-      }
+.pacinput2 {
+	background-color: orange;
+	font-family: Roboto;
+	font-size: 16px;
+	font-weight: 300;
+	padding: 0 11px 0 13px;
+	text-overflow: ellipsis;
+	width: 100%;
+	margin-top: 5px;
+	position: fixed;
+	color: white;
+}
+
+#sideTrip {
+    padding: 0px 20px;
+    color: #e65100;
+    font-weight: 500;
+    font-size: 18px;
+}

@@ -8,6 +8,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
@@ -21,7 +22,19 @@
     <nav>
         <div class="nav-wrapper orange darken-4">
             <a id="tripHeader"><span class="orange-text text-accent-1">to go</span> The Trip Planner</a>
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+
+            <ul class="right hide-on-med-and-down">
+                <li><a href="about.html">About</a></li>
+                <li><a class="waves-effect waves-light btn orange darken-1">Already have a trip?</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    <div id="sideTrip">
+                        <p><span class="orange-text text-accent-1">to go</span> The Trip Planner</p>
+                    </div>
+                </li>
+                <li><div class="divider"></div></li>
                 <li><a href="about.html">About</a></li>
                 <li><a class="waves-effect waves-light btn orange darken-1">Already have a trip?</a></li>
             </ul>
