@@ -20,27 +20,20 @@ var endDate = "";
 
 // button clicks
 $('#startButton').on('click', function () {
+
 	destination = $('#pac-input').val().trim();
 	startDate = $('#startDate').val();
 	endDate = $('#endDate').val();
-
-	// retrieve coordinates of string value google search (response1.results[0].geometry.location. for coords)
-	var key1 = 'AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA';
-	var URL1 =  "https://maps.googleapis.com/maps/api/geocode/json?address=" + destination + "&key=" + key1;
-	
-	// ajax call
-	$.ajax({url: URL1, method: 'GET'}).done(function(response1) {	
-		// console.log(response1);
-		localStorage.setItem("destinationLat", response1.results[0].geometry.location.lat);
-		localStorage.setItem("destinationLong", response1.results[0].geometry.location.lng);
-
-	});
 
 	// switch to firebase eventually
 	// localStorage.clear();
 	localStorage.setItem("destination", destination); 
 	localStorage.setItem("startDate", startDate);
 	localStorage.setItem("endDate", endDate);
+
+	//localStorage.setItem("destinationLat", lat1)
+//console.log(lat1)
+
 
 	// debugger;
 })

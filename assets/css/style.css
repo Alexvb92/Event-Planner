@@ -1,4 +1,4 @@
-t
+
 html, body {
 	height: 100%;
 	margin: 0;
@@ -30,8 +30,11 @@ h6 {
 }
 
 #mapMain {
-	height: 250px;
-	width: 250px;
+	height: 700px;
+	width: 100%;
+	float: right;
+	margin-top: 5px;
+
 }
 
 #tripHeader {
@@ -54,6 +57,7 @@ h6 {
 	font-weight: 500;
 }
 
+
 .xyz {
 	color: #fc9225;
     margin-right: 10px;
@@ -63,3 +67,16 @@ h6 {
     height: 21px;
 }
 
+     .pacinput2 {
+        background-color: orange;
+        font-family: Roboto;
+        font-size: 16px;
+        font-weight: 300;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 100%;
+        margin-top: 5px;
+        position: fixed;
+        color: white;
+       
+      }
