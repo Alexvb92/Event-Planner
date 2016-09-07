@@ -93,6 +93,12 @@ database.ref().on("child_added", function(childSnapshot) {
 	XButton.attr("toDo", toDoCount);
 	$(newLine).prepend(XButton);
 
+	checkCounter++;
+	toDoCount++;
+
+	console.log(XButton.attr("toDo"));
+
+
 }, function (errorObject) {
 
 		// In case of error this will print the error
@@ -101,14 +107,12 @@ database.ref().on("child_added", function(childSnapshot) {
 
 	})
 $(document.body).on('click', '#remove', function () {
-		// var todoNumber = $(this).attr("toDo");
-		// $("#item-" + todoNumber).remove();
+		var todoNumber = $(this).attr("toDo");
+		$("#item-" + todoNumber).remove();
 
 		$(this).name.remove();
 
-		// console.log($(this).attr("toDo"))
-
-		console.log("clicked");
+		
 });
 
 var checkCounter = 5;
@@ -130,7 +134,7 @@ $(document).keypress(function(e) {
 		name: {
 		textInput: textInput,
 		checkCounter: checkCounter,
-		toDo: toDoCount
+		toDo: toDoCount + 1
 	}
 	});
 
