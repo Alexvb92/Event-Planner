@@ -19,33 +19,55 @@
 <body>
 
 <style>      
-  #pac-input1 {
-        background-color: white;
-        font-family: Roboto;
-        font-size: 16px;
-        font-weight: 300;
-        padding: 0 11px 0 13px;
-        text-overflow: ellipsis;
-        width: 50%;
-        margin-top: 10px;
-        position: absolute;
-        color: black; 
-        margin: 0 auto;  
-        border-right: 1px solid #9E9E9E; 
-        border-top: 1px solid #9E9E9E; 
-        border-left: 1px solid #9E9E9E; 
-  }
+	#pac-input1 {
+	      background-color: white;
+	      font-family: Roboto;
+	      font-size: 16px;
+	      font-weight: 300;
+	      padding: 0 11px 0 13px;
+	      text-overflow: ellipsis;
+	      width: 50%;
+	      margin-top: 10px;
+	      position: absolute;
+	      color: black; 
+	      margin: 0 auto;  
+	      border-right: 1px solid #9E9E9E; 
+	      border-top: 1px solid #9E9E9E; 
+	      border-left: 1px solid #9E9E9E; 
+	}
 </style>
 
 <div class="navbar-fixed">
     <nav>
         <div class="nav-wrapper orange darken-4">
-            <a id="tripHeader"><span class="orange-text text-accent-1">to go</span><span class="hide-on-med-and-down"> Your trip to <span class="destinationDisplay">[Destination]</span> from <span class="startDateDisplay">[MM/DD/YY]</span> to <span class="endDateDisplay">[MM/DD/YY]</span></span></a>
-            <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+            <a id="tripHeader">
+            	<span class="orange-text text-accent-1">
+            		to go
+            	</span>
+            	<span class="hide-on-med-and-down">
+	            	Your trip to
+	            	<span class="destinationDisplay">
+	            		Washington, DC, United States
+	            	</span>
+	            	from 
+	            	<span class="startDateDisplay">
+	            		9/9/16
+            		</span>
+            		to 
+            		<span class="endDateDisplay">
+            			9/11/16
+            		</span>
+            	</span>
+            </a>
+            <a href="#" data-activates="mobile-demo" class="right button-collapse">
+            	<i class="material-icons">
+            		menu
+            	</i>
+            </a>
 
             <ul class="right hide-on-med-and-down">
                 <li><a href="about.html">About</a></li>
-                <li><a class="waves-effect waves-light btn orange darken-1 savedtrip" href='sample.html'>Save trip</a></li>
+                <li><a class="waves-effect waves-light btn orange darken-1">Save trip</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 <li>
@@ -55,7 +77,7 @@
                 </li>
                 <li><div class="divider"></div></li>
                 <li><a href="about.html">About</a></li>
-                <li><a class="waves-effect waves-light btn orange darken-1">Save trip</a></li>
+                <li><a class="waves-effect waves-light btn orange darken-1" href='sample.html'>Save trip</a></li>
             </ul>
         </div>
     </nav>
@@ -71,7 +93,81 @@
             </ul>
           </div>
           
-          <div id="planner" class="col s12"></div>
+          <div id="planner" class="col s12">
+          	<div class="card">
+          		<div class="card-content">
+          			<span class="card-title">
+          				<span class="orange-text text-darken-4 dayHeader">
+          					Day 1
+          				</span>
+          				<span class="black-text">
+          					Friday - 9/9/16
+          				</span>
+          			</span>
+					<p>
+						<span id="day1Weather">
+							High: 94&#8457 | Low: 73&#8457 | Forecast: Clear
+						</span>
+					</p>
+					<p>
+						The day's activities:<br>
+		          	 	9:00 am - Smithsonian Museum of Natural history <br>
+		          	 	11:00 am - Walk around the mall <br>
+		          	 	12:30 pm - National Air and Space Museum <br>
+		          	 	1:00 pm - Late lunch in the Museum food court
+					</p>
+				</div>
+			</div>
+          	<div class="card">
+          		<div class="card-content">
+          			<span class="card-title">
+          				<span class="orange-text text-darken-4 dayHeader">
+          					Day 2
+          				</span>
+          				<span class="black-text">
+          					Saturday - 9/10/16
+          				</span>
+          			</span>
+          			<p>
+          				<span id="day2Weather">
+          					High: 95&#8457 | Low: 75&#8457 | Forecast: Clear
+          				</span>
+          			</p>
+          			<p>
+          				 The day's activities:<br>
+          				 10:00 am - Drive to the National Arboretum <br>
+			          	 12:00 pm - Get lunch on H street <br>
+			          	 1:00 pm - Take H street trolley to Union Station<br>
+			          	 1:30 pm - Walk to Capitol Building from Union Station<br>
+			          	 2:30 pm - Go to the US Botanic Garden 
+			        </p>
+			    </div>
+			</div>
+          	<div class="card">
+          		<div class="card-content">
+          			<span class="card-title">
+          				<span class="orange-text text-darken-4 dayHeader">
+          					Day 3
+          				</span>
+          				<span class="black-text">
+          					 Sunday - 9/11/16
+          				</span>
+          			</span>
+          			<p>
+          				<span id="day3Weather">
+          					High: 86&#8457 | Low: 63&#8457 | Forecast: Partly Cloudy
+          				</span>
+          			</p>
+          			<p>
+          				The day's activities:<br>
+			          	8:30 am - Get breakfast <br>
+			          	10:00 am - Walk to the FDR memorial <br>
+			          	11:30 pm - Walk to Lincoln Memorial <br>
+			          	1:00 pm - Paddle boat around the Tidal Basin
+			        </p>
+			    </div>
+			</div>
+		</div>
          
           <div id="toDo" class="col s12">
             <div class="toDo-entry">
@@ -98,31 +194,12 @@
         <div id="mapMain"></div>
             <div class='pacover'> <input id="pac-input1" class="controls" type="text" placeholder="Search"> </div>
         <script>
-		var destination = localStorage.getItem('destination')
-		var lat1;
-		var long1;
-
-		    // retrieve coordinates of string value google search (response1.results[0].geometry.location. for coords)
-		var key1 = 'AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA';
-		var URL1 =  "https://maps.googleapis.com/maps/api/geocode/json?address=" + destination + "&key=" + key1;
-    var google;
-		    // ajax call
-		$.ajax({url: URL1, method: 'GET'}).done(function(response1) { 
-
-		  lat1 = Number(response1.results[0].geometry.location.lat);
-		  long1 = Number(response1.results[0].geometry.location.lng);
-		  localStorage.setItem("destinationLat", lat1);
-		  localStorage.setItem("destinationLong", long1);
-
-		initAutocomplete()
-		  });
-
 
 		  function initAutocomplete() {
 		    var map = new google.maps.Map(document.getElementById('mapMain'), {
-		      center: {lat: lat1, lng: long1},
+		      center: {lat: 38.9072, lng: -77.0369},
 		      zoom: 14,
-          disableDefaultUI: true,
+		      disableDefaultUI: true,
 		      mapTypeId: 'roadmap'
 		    });
 
@@ -195,13 +272,11 @@
 		      infoWindow.open(map, marker);
 		    });
 		  });
-
 		</script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places&callback=initAutocomplete" async defer></script>
     </div>
 </div>
 
-<script src="assets/javascript/planner.js"></script>
 
 </body>
 </html>
