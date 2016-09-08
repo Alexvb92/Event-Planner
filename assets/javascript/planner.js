@@ -25,8 +25,7 @@ $('#startButton').on('click', function () {
 	startDate = $('#startDate').val();
 	endDate = $('#endDate').val();
 
-	// switch to firebase eventually
-	// localStorage.clear();
+	localStorage.clear();
 	localStorage.setItem("destination", destination); 
 	localStorage.setItem("startDate", startDate);
 	localStorage.setItem("endDate", endDate);
@@ -70,7 +69,7 @@ if (localStorage.getItem("startDate") > moment().add(10, "days").format("YYYY-MM
 		newDay.addClass("card");
 		newDayContent.addClass("card-content");
 		newDayContent.append("<span class='card-title'><span class='orange-text text-darken-4 dayHeader'>Day " + [i] + "</span><span class='black-text'> " + calendarDay + "</span>");
-		newDayContent.append("<p>The day's activities</p>");
+		newDayContent.append("<input id='day" + [i] + "ActivityInput' data-attr='" + [i] + "' type='text' class='validate dayInput' placeholder='The day&#8217;s activities'><div id='day" + [i] + "Activity'></div>");
 		newDay.append(newDayContent);
 		$("#planner").append(newDay);
 	}
@@ -91,12 +90,23 @@ else {
 			newDayContent.addClass("card-content");
 			newDayContent.append("<span class='card-title'><span class='orange-text text-darken-4 dayHeader'>Day " + [i] + "</span><span class='black-text'> " + calendarDay + "</span>");
 			newDayContent.append("<p><span id='day" + [i] + "Weather'>High: " + high + "&deg;F | Low: " + low + "&deg;F | Forecast: " + forecast + "</span></p>");
-			newDayContent.append("<p>The day's activities</p>");
+			newDayContent.append("<input id='day" + [i] + "ActivityInput' data-attr='" + [i] + "'type='text' class='validate dayInput' placeholder='The day&#8217;s activities'><div='day" + [i] + "Activity'></div>");
 			newDay.append(newDayContent);
 			$("#planner").append(newDay);
 		}
 	});
 }
+
+$(".dayInput").keypress(function(e) {
+	var inputID = $(this).data('attr');
+	if(e.which == 13) {
+		var textInput = $("#day" + inputID + "ActivityInput").val().trim();
+		var newLine = $("<p>");
+		newLine.append(textInput);
+		$("#day" + inputID + "Activity").append(newLine);
+		$("#day" + inputID + "ActivityInput").val("");
+	}
+})
 
 database.ref().on("child_added", function(childSnapshot) {
 	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + childSnapshot.val().name.checkCounter + '" /><label id="textInput" for="test' + childSnapshot.val().name.checkCounter + '">' + childSnapshot.val().name.textInput + '</label></p>');
@@ -111,7 +121,7 @@ database.ref().on("child_added", function(childSnapshot) {
 	checkCounter++;
 	toDoCount++;
 
-	console.log(XButton.attr("toDo"));
+	// console.log(XButton.attr("toDo"));
 
 }, function (errorObject) {
 
@@ -126,8 +136,6 @@ $(document.body).on('click', '#remove', function () {
 		$("#item-" + todoNumber).remove();
 
 		$(this).name.remove();
-
-		
 });
 
 var checkCounter = 5;
