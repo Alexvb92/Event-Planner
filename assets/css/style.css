@@ -62,6 +62,12 @@ h6 {
     padding-left: 7px;
     padding-top: 1px;
     height: 21px;
+    background-color: white;
+    border: none;
+}
+
+.xyz:hover {
+	color: lightblue;
 }
 
 #sideTrip {
@@ -70,7 +76,10 @@ h6 {
     font-weight: 500;
     font-size: 18px;
 }
+<<<<<<< HEAD
 
 .toaster{
 background-color: #e65100;
 }
+=======
+>>>>>>> feature/todoClean

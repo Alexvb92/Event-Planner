@@ -97,6 +97,7 @@ else {
 	});
 }
 
+
 $(".dayInput").keypress(function(e) {
 	var inputID = $(this).data('attr');
 	if(e.which == 13) {
@@ -108,20 +109,42 @@ $(".dayInput").keypress(function(e) {
 	}
 })
 
+
+var firebaseArray = [];
+var arrayCount = 1;
+
 database.ref().on("child_added", function(childSnapshot) {
+
+	var element = {
+		arrayCounter: arrayCount,
+		// checkCounter: childSnapshot.val().name.checkCounter,
+		// textInput: childSnapshot.val().name.textInput
+		
+	}
+	firebaseArray.push(childSnapshot);
+	
 	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + childSnapshot.val().name.checkCounter + '" /><label id="textInput" for="test' + childSnapshot.val().name.checkCounter + '">' + childSnapshot.val().name.textInput + '</label></p>');
 	$('#tBody').prepend(newLine);
+	newLine.attr("id", "item-" + toDoCount);
 
 	XButton = $('<button id="remove" class="col s1">x</button>');
 	XButton.removeClass("col s1");
 	XButton.addClass("xyz cols1");
+
 	XButton.attr("toDo", toDoCount);
+	XButton.attr("id", "item-" + toDoCount);
+
 	$(newLine).prepend(XButton);
 
 	checkCounter++;
 	toDoCount++;
 
 	// console.log(XButton.attr("toDo"));
+
+	arrayCount++;
+
+	// console.log(arrayCount);
+
 
 }, function (errorObject) {
 
@@ -131,16 +154,25 @@ database.ref().on("child_added", function(childSnapshot) {
 
 	})
 
-$(document.body).on('click', '#remove', function () {
-		var todoNumber = $(this).attr("toDo");
-		$("#item-" + todoNumber).remove();
+$(document.body).on('click', '.xyz', function () {
+
 
 		$(this).name.remove();
+
+	var todoNumber = $(this).attr("toDo");
+	$("#item-" + todoNumber).remove();
+
+	// console.log(firebaseArray[todoNumber]);
+
+	firebaseArray[todoNumber].ref.remove();
+
 });
 
 var checkCounter = 5;
 toDoCount = 0;
 var textInput;
+
+
 $(document).keypress(function(e) {
   if(e.which == 13) {
     textInput = $('#text-input').val().trim();
@@ -158,15 +190,11 @@ $(document).keypress(function(e) {
 		textInput: textInput,
 		checkCounter: checkCounter,
 		toDo: toDoCount + 1
-	}
+		}
 	});
 
   }
 });
-
-$(document.body).on('click', '#test', function () {
-	//need to keep box checked on reload
-	});
 
 $(".button-collapse").sideNav();
 
