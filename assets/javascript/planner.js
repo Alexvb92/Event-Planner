@@ -170,7 +170,7 @@ toDoCount = 0;
 var textInput;
 
 
-$(document).keypress(function(e) {
+$('#text-input').keypress(function(e) {
   if(e.which == 13) {
     textInput = $('#text-input').val().trim();
     newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label id="textInput" for="test' + checkCounter + '">' + textInput + '</label></p>');
