@@ -1,6 +1,6 @@
 # *to go* The Trip Planner
 
-*to go* is a trip/itinerary planner with list-making and weather forecasting functionality to plan a trip the smart and easy way.
+*to go* is a trip/itinerary planner with weather forecasts, maps and list-making functionality to plan a trip the smart and easy way.
 
 ## Team
 
