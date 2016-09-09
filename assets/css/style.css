@@ -64,6 +64,12 @@ h6 {
     padding-left: 7px;
     padding-top: 1px;
     height: 21px;
+    background-color: white;
+    border: none;
+}
+
+.xyz:hover {
+	color: lightblue;
 }
 
 .pacinput2 {
