@@ -156,7 +156,7 @@ database.ref().on("child_added", function(childSnapshot) {
 
 $(document.body).on('click', '.xyz', function () {
 
-var todoNumber = $(this).attr("toDo");
+	var todoNumber = $(this).attr("toDo");
 	$("#item-" + todoNumber).remove();
 
 	// console.log(firebaseArray[todoNumber]);
