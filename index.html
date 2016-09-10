@@ -23,7 +23,6 @@
         <div class="nav-wrapper orange darken-4">
             <a id="tripHeader"><span class="orange-text text-accent-1">to go</span> The Trip Planner</a>
             <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
-
             <ul class="right hide-on-med-and-down">
                 <li><a href="about.html">About</a></li>
                 <li><a class="waves-effect waves-light btn orange darken-1" href='sample.html'>Already have a trip?</a></li>
@@ -42,25 +41,31 @@
     </nav>
 </div>
 
-<div class="container" id="startContainer">
-    <div class="row valign-wrapper">
-        <div class="col s2"><h6 class="center-align">I want to go to </h6></div>
-        <div class="col s4">
+<div class="container center-align" id="startContainer">
+    <div class="row">
+        <div class="col m2 s12">
+            <p>I want to go to</p>
+        </div>
+        <div class="col m4 s12">
             <input id="pac-input" type="text" class="center-align" placeholder="Destination">
         </div>
-        <div class="col s1"><h6 class="center-align">from</h6></div>
-        <div class="col s2">
-            <input id="startDate" type="date" class="datepicker center-align">
+        <div class="col m1 s12">
+            <p>from</p>
         </div>
-        <div class="col s1"><h6 class="center-align">to</h6></div>
-        <div class="col s2">
-            <input id="endDate" type="date" class="datepicker center-align">
+        <div class="col m2 s12">
+            <input id="startDate" type="date" class="datepicker center-align" placeholder="Today">
+        </div>
+        <div class="col m1 s12">
+            <p>to</p>
+        </div>
+        <div class="col m2 s12">
+            <input id="endDate" type="date" class="datepicker center-align" placeholder="Tuesday">
         </div>
     </div>
     <div class="row">
-        <div class="col s12 center-align">
-            <a id="startButton" href="main.html" class="waves-effect waves-light btn orange darken-1">Start</a>
-        </div>   
+        <div class="col s12">
+            <a id="startButton" class="waves-effect waves-light btn orange darken-1">Start</a>
+        </div>
     </div>
 </div>
 

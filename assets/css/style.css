@@ -5,14 +5,7 @@ html, body {
 }
 
 #startContainer {
-	height: 25%;
-	width: 100%;
-	padding: 50px 30px;
-	background-color: rgba(255,255,255,0.95);
-    position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	padding: 50px;
 	z-index: 1;
 }
 
@@ -25,14 +18,13 @@ h6 {
 }
 
 #mapStart {
-	height: 100%;
+	height: calc(100% - 305px);
 }
 
 #mapMain {
 	height: 700px;
 	width: 100%;
 	margin-top: 15px;
-
 }
 
 #tripHeader {
@@ -77,8 +69,22 @@ h6 {
     font-size: 18px;
 }
 
-
 .toaster{
 background-color: #e65100;
 }
 
+.picker__date-display, .picker__weekday-display{
+    background-color: #e65100;
+}
+
+.picker__year-display {
+    color: white;
+}
+
+.picker__today, .picker__close, .picker__day.picker__day--today {
+    color: #e65100;
+}
+
+.picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
+    background-color: #fb8c00;
+}

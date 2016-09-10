@@ -31,6 +31,14 @@ $('#startButton').on('click', function () {
 	localStorage.setItem("endDate", endDate);
 })
 
+// enables datepicker on front page
+$('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 5, // Creates a dropdown of 15 years to control year
+    min: true,
+    format: 'm/d/yy',
+});
+
 // make this only run on a certain page?
 // populates nav bar
 $(".destinationDisplay").html(localStorage.getItem("destination"));
@@ -90,7 +98,7 @@ else {
 			newDayContent.addClass("card-content");
 			newDayContent.append("<span class='card-title'><span class='orange-text text-darken-4 dayHeader'>Day " + [i] + "</span><span class='black-text'> " + calendarDay + "</span>");
 			newDayContent.append("<p><span id='day" + [i] + "Weather'>High: " + high + "&deg;F | Low: " + low + "&deg;F | Forecast: " + forecast + "</span></p>");
-			newDayContent.append("<input id='day" + [i] + "ActivityInput' data-attr='" + [i] + "'type='text' class='validate dayInput' placeholder='The day&#8217;s activities'><div='day" + [i] + "Activity'></div>");
+			newDayContent.append("<input id='day" + [i] + "ActivityInput' data-attr='" + [i] + "'type='text' class='validate dayInput' placeholder='The day&#8217;s activities'><div id='day" + [i] + "Activity'></div>");
 			newDay.append(newDayContent);
 			$("#planner").append(newDay);
 		}
