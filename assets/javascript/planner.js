@@ -176,7 +176,13 @@ function weatherb(){
 			$("#planner").append(newDay);
 		}
 
+
 		
+
+		for(i=0; i < 5; i++) {
+			$('#newDayContent').append('<div>' + localStorage.getItem('day1ActivityInput' + i) + '</div>');
+		}
+
 		
 	};
 }
@@ -202,11 +208,11 @@ $('#planner').keypress(function(e) {
 
 		$('#newDayContent').append(textInput + "<br>");
 	
-		
+	
+
+		localStorage.setItem('day1ActivityInput' + storageCount, textInput);
 		storageCount++;
-		storageArray.push(textInput);
-		localStorage.setItem('day1ActivityInput', storageArray);
-		// console.log(storageArray);
+		storeArray.push(textInput);
 	}
 
 	} 
