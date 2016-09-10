@@ -1,81 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
 
-<title>to go - The Trip Planner</title>
+    <title>to go - The Trip Planner</title>
 
-<meta name="viewport" content="initial-scale=1.0">
+    <meta name="viewport" content="initial-scale=1.0">
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-<link rel="stylesheet" type="text/css" href="assets/css/style.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-<script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
+    <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 
-</head>
-<body>
+    </head>
+    <body>
 
-<div class="navbar-fixed">
-    <nav>
-        <div class="nav-wrapper orange darken-4">
-            <a id="tripHeader"><span class="orange-text text-accent-1">to go</span> The Trip Planner</a>
-            <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="about.html">About</a></li>
-                <li><a class="waves-effect waves-light btn orange darken-1" href='sample.html'>Already have a trip?</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-                <li>
-                    <div id="sideTrip">
-                        <p><span class="orange-text text-accent-1">to go</span> The Trip Planner</p>
-                    </div>
-                </li>
-                <li><div class="divider"></div></li>
-                <li><a href="about.html">About</a></li>
-                <li><a class="waves-effect waves-light btn orange darken-1" href='sample.html'>Already have a trip?</a></li>
-            </ul>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper orange darken-4">
+                    <a id="tripHeader"><span class="orange-text text-accent-1">to go</span> The Trip Planner</a>
+                    <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li><a href="about.html">About</a></li>
+                        <li><a class="waves-effect waves-light btn orange darken-1" href='sample.html'>Already have a trip?</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo">
+                        <li>
+                            <div id="sideTrip">
+                                <p><span class="orange-text text-accent-1">to go</span> The Trip Planner</p>
+                            </div>
+                        </li>
+                        <li><div class="divider"></div></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a class="waves-effect waves-light btn orange darken-1" href='sample.html'>Already have a trip?</a></li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-    </nav>
-</div>
 
-<div class="container center-align" id="startContainer">
-    <div class="row">
-        <div class="col m2 s12">
-            <p>I want to go to</p>
+        <div class="container center-align" id="startContainer">
+            <div class="row">
+                <div class="col m2 s12">
+                    <p>I want to go to</p>
+                </div>
+                <div class="col m4 s12">
+                    <input id="pac-input" type="text" class="center-align" placeholder="Destination">
+                </div>
+                <div class="col m1 s12">
+                    <p>from</p>
+                </div>
+                <div class="col m2 s12">
+                    <input id="startDate" type="date" class="datepicker center-align" placeholder="Today">
+                </div>
+                <div class="col m1 s12">
+                    <p>to</p>
+                </div>
+                <div class="col m2 s12">
+                    <input id="endDate" type="date" class="datepicker center-align" placeholder="Tuesday">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <a id="startButton" class="waves-effect waves-light btn orange darken-1" href="main.html">Start</a>
+                </div>
+            </div>
         </div>
-        <div class="col m4 s12">
-            <input id="pac-input" type="text" class="center-align" placeholder="Destination">
-        </div>
-        <div class="col m1 s12">
-            <p>from</p>
-        </div>
-        <div class="col m2 s12">
-            <input id="startDate" type="date" class="datepicker center-align" placeholder="Today">
-        </div>
-        <div class="col m1 s12">
-            <p>to</p>
-        </div>
-        <div class="col m2 s12">
-            <input id="endDate" type="date" class="datepicker center-align" placeholder="Tuesday">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12">
-            <a id="startButton" class="waves-effect waves-light btn orange darken-1" href="main.html">Start</a>
-        </div>
-    </div>
-</div>
+        <div id="mapStart"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places&callback=initAutocomplete1" async defer></script>
+        <script src="assets/javascript/planner.js"></script>
 
-<div id="mapStart"></div>
-
-    <script>
-    </script>
-
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places&callback=initAutocomplete1" async defer></script>
-<script src="assets/javascript/planner.js"></script>
-
-</body>
+    </body>
 </html>
