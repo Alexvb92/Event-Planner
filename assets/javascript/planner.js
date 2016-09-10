@@ -58,83 +58,86 @@ $.ajax({url: URL1, method: 'GET'}).done(function(response1) {
 });
 
 
-function initAutocomplete() {
-    var map = new google.maps.Map(document.getElementById('mapMain'), {
-      	 center: {lat: lat1, lng: long1},
-     	 zoom: 14,
- 	 	 disableDefaultUI: true,
-    	 mapTypeId: 'roadmap'
-    });
+// function initAutocomplete() {
+//     var map = new google.maps.Map(document.getElementById('mapMain'), {
+//       	 center: {lat: lat1, lng: long1},
+//      	 zoom: 14,
+//  	 	 disableDefaultUI: true,
+//     	 mapTypeId: 'roadmap'
+//     });
 
-    // Create the search box and link it to the UI element.
-    var input = document.getElementById('pac-input1');
-    var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+//     // Create the search box and link it to the UI element.
+//     var input = document.getElementById('pac-input1');
+//     var searchBox = new google.maps.places.SearchBox(input);
+//     map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds_changed', function() {
-      searchBox.setBounds(map.getBounds());
-    });
+//     // Bias the SearchBox results towards current map's viewport.
+//     map.addListener('bounds_changed', function() {
+//       searchBox.setBounds(map.getBounds());
+//     });
 
-    var markers = [];
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
-    searchBox.addListener('places_changed', function() {
-      var places = searchBox.getPlaces();
+//     var markers = [];
+//     // Listen for the event fired when the user selects a prediction and retrieve
+//     // more details for that place.
+//     searchBox.addListener('places_changed', function() {
+//       var places = searchBox.getPlaces();
 
-      if (places.length == 0) {
-        return;
-      }
+//       if (places.length == 0) {
+//         return;
+//       }
 
-      // Clear out the old markers.
-      markers.forEach(function(marker) {
-        marker.setMap(null);
-      });
-      markers = [];
+//       // Clear out the old markers.
+//       markers.forEach(function(marker) {
+//         marker.setMap(null);
+//       });
+//       markers = [];
 
-      // For each place, get the icon, name and location.
-      var bounds = new google.maps.LatLngBounds();
-      places.forEach(function(place) {
-        if (!place.geometry) {
-          console.log("Returned place contains no geometry");
-          return;
-        }
-        var icon = {
-          url: place.icon,
-          size: new google.maps.Size(71, 71),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(17, 34),
-          scaledSize: new google.maps.Size(25, 25)
-        };
+//       // For each place, get the icon, name and location.
+//       var bounds = new google.maps.LatLngBounds();
 
-        // Create a marker for each place.
-        markers.push(new google.maps.Marker({
-          map: map,
-          icon: icon,
-          title: place.name,
-          position: place.geometry.location
-        }));
+//       places.forEach(function(place) {
+//         if (!place.geometry) {
+//           console.log("Returned place contains no geometry");
+//           return;
+//         }
+//         var icon = {
+//           url: place.icon,
+//           size: new google.maps.Size(71, 71),
+//           origin: new google.maps.Point(0, 0),
+//           anchor: new google.maps.Point(17, 34),
+//           scaledSize: new google.maps.Size(25, 25)
+//         };
 
-        if (place.geometry.viewport) {
-          // Only geocodes have viewport.
-          bounds.union(place.geometry.viewport);
-        } else {
-          bounds.extend(place.geometry.location);
-        }
-      });
-      map.fitBounds(bounds);
-    });
-  }
-  google.maps.event.addListener(marker, 'click', function() {
-    service.getDetails(place, function(result, status) {
-      if (status !== google.maps.places.PlacesServiceStatus.OK) {
-        console.error(status);
-        return;
-      }
-      infoWindow.setContent(result.name);
-      infoWindow.open(map, marker);
-   });
-});
+//         // Create a marker for each place.
+//         markers.push(new google.maps.Marker({
+//           map: map,
+//           icon: icon,
+//           title: place.name,
+//           position: place.geometry.location
+//         }));
+
+//         if (place.geometry.viewport) {
+//           // Only geocodes have viewport.
+//           bounds.union(place.geometry.viewport);
+//         } else {
+//           bounds.extend(place.geometry.location);
+//         }
+
+//       });
+//       map.fitBounds(bounds);
+//     });
+//   }
+
+//   google.maps.event.addListener(marker, 'click', function() {
+//     service.getDetails(place, function(result, status) {
+//       if (status !== google.maps.places.PlacesServiceStatus.OK) {
+//         console.error(status);
+//         return;
+//       }
+//       infoWindow.setContent(result.name);
+//       infoWindow.open(map, marker);
+//    });
+// });
 
 
 
@@ -175,47 +178,7 @@ function weatherb(){
 			newDay.append(newDayContent);
 			$("#planner").append(newDay);
 		}
-
-
-		
-
-		for(i=0; i < 5; i++) {
-			$('#newDayContent').append('<div>' + localStorage.getItem('day1ActivityInput' + i) + '</div>');
-		}
-
-		
-	};
-}
-
-var storageCount = 0;
-var storageArray = [];
-//Planner "toDo List" entry
-$('#planner').keypress(function(e) {
-	// var inputID = $(this).data('attr');
-	if(e.which == 13) {
-		// var value = "#day" + inputID + "ActivityInput";
-
-		// var textInput = $("#day" + inputID + "ActivityInput").val();
-		var textInput = $("#day1ActivityInput").val().trim();
-		var newLine = $("<p>");
-		// $('#newDayContent').append(textInput + "<br>");
-		// $("#day" + inputID + "Activity").append(newLine);
-		$("#day1ActivityInput").append(newLine);
-		// $("#day" + inputID + "ActivityInput").val("");
-		$("#day1ActivityInput").val('');
-		// console.log(value);
-		// console.log(textInput)
-
-		$('#newDayContent').append(textInput + "<br>");
-	
-	
-
-		localStorage.setItem('day1ActivityInput' + storageCount, textInput);
-		storageCount++;
-		storeArray.push(textInput);
 	}
-
-	} 
 
 	// generates actual forecast
 	else {
@@ -241,39 +204,25 @@ $('#planner').keypress(function(e) {
 			
 		});
 	}
-
-	var storageCount = 0;
-	var storageArray = [];
-	//Planner "toDo List" entry
-	$('#planner').keypress(function(e) {
-		// var inputID = $(this).data('attr');
-		if(e.which == 13) {
-			// var value = "#day" + inputID + "ActivityInput";
-
-			// var textInput = $("#day" + inputID + "ActivityInput").val();
-			var textInput = $("#day1ActivityInput").val().trim();
-			var newLine = $("<p>");
-			// $('#newDayContent').append(textInput + "<br>");
-			// $("#day" + inputID + "Activity").append(newLine);
-			$("#day1ActivityInput").append(newLine);
-			// $("#day" + inputID + "ActivityInput").val("");
-			$("#day1ActivityInput").val('');
-			// console.log(value);
-			// console.log(textInput)
-
-			$('#newDayContent').append(textInput + "<br>");
-		
-		
-
-			localStorage.setItem('day1ActivityInput' + storageCount, textInput);
-			storageCount++;
-			storeArray.push(textInput);
-		}
-
-
-	})
-
 }
+
+var storageCount = 0;
+var storageArray = [];
+
+//Planner "toDo List" entry
+$('#day1ActivityInput').keypress(function(e) {
+	if(e.which == 13) {
+		var textInput = $("#day1ActivityInput").val().trim();
+		var newLine = $("<p>");
+		$("#day1ActivityInput").append(newLine);
+		$("#day1ActivityInput").val('');
+		$('#newDayContent').append(textInput + "<br>");
+	
+		localStorage.setItem('day1ActivityInput', textInput);
+		storageCount++;
+		storageArray.push(textInput);
+	}
+});
 
 var firebaseArray = [];
 var arrayCount = 1;
@@ -326,6 +275,7 @@ var textInput;
 
 $('#text-input').keypress(function(e) {
   if(e.which == 13) {
+  	console.log("entered")
     textInput = $('#text-input').val().trim();
     newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + checkCounter + '" /><label id="textInput" for="test' + checkCounter + '">' + textInput + '</label></p>');
 
