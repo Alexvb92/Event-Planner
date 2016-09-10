@@ -88,3 +88,9 @@ background-color: #e65100;
 .picker__day--selected, .picker__day--selected:hover, .picker--focused .picker__day--selected {
     background-color: #fb8c00;
 }
+
+@media screen and (max-width: 600px) {
+	#mapStart {
+		display: none;
+	}
+}
