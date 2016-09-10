@@ -52,7 +52,7 @@ var key = "1d150de371b4d1a3"
 var weatherForecastURL = "http://api.wunderground.com/api/" + key + "/forecast10day/geolookup/q/" + coordinates + ".json";
 
 // generates weather summary if forecast is unavailable
-if (localStorage.getItem("startDate") > moment().add(10, "days").format("YYYY-MM-DD")) {
+if (localStorage.getItem("startDate") > moment().add(10, "days").format("M/D/YY")) {
 	var dateHistoricalStart = moment(localStorage.getItem("startDate")).format("MMDD");
 	var dateHistoricalEnd = moment(localStorage.getItem("endDate")).format("MMDD");
 	var weatherPlannerURL = "http://api.wunderground.com/api/" + key + "/planner_" + dateHistoricalStart + dateHistoricalEnd + "/q/" + coordinates + ".json";
