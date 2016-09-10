@@ -89,7 +89,7 @@ else {
 		console.log(response);
 		for (var i = 1; i <= days; i++) {
 			var newDay = $("<div>");
-			var newDayContent = $("<div>");
+			var newDayContent = $("<div id='newDayContent'>");
 			var calendarDay = moment(localStorage.getItem("startDate")).add([i] - 1, "days").format("dddd - M/D/YY");
 			var high = response.forecast.simpleforecast.forecastday[i].high.fahrenheit;
 			var low = response.forecast.simpleforecast.forecastday[i].low.fahrenheit;
@@ -102,19 +102,41 @@ else {
 			newDay.append(newDayContent);
 			$("#planner").append(newDay);
 		}
+		for(i=0; i < 5; i++) {
+			$('#newDayContent').append('<div>' + localStorage.getItem('day1ActivityInput' + i) + '</div>');
+		}
+		
 	});
 }
 
-
-$(".dayInput").keypress(function(e) {
-	var inputID = $(this).data('attr');
+var storageCount = 0;
+var storageArray = [];
+//Planner "toDo List" entry
+$('#planner').keypress(function(e) {
+	// var inputID = $(this).data('attr');
 	if(e.which == 13) {
-		var textInput = $("#day" + inputID + "ActivityInput").val().trim();
+		// var value = "#day" + inputID + "ActivityInput";
+
+		// var textInput = $("#day" + inputID + "ActivityInput").val();
+		var textInput = $("#day1ActivityInput").val().trim();
 		var newLine = $("<p>");
-		newLine.append(textInput);
-		$("#day" + inputID + "Activity").append(newLine);
-		$("#day" + inputID + "ActivityInput").val("");
+		// $('#newDayContent').append(textInput + "<br>");
+		// $("#day" + inputID + "Activity").append(newLine);
+		$("#day1ActivityInput").append(newLine);
+		// $("#day" + inputID + "ActivityInput").val("");
+		$("#day1ActivityInput").val('');
+		// console.log(value);
+		// console.log(textInput)
+
+		$('#newDayContent').append(textInput + "<br>");
+	
+	
+
+		localStorage.setItem('day1ActivityInput' + storageCount, textInput);
+		storageCount++;
+		storeArray.push(textInput);
 	}
+
 })
 
 
@@ -125,9 +147,6 @@ database.ref().on("child_added", function(childSnapshot) {
 
 	var element = {
 		arrayCounter: arrayCount,
-		// checkCounter: childSnapshot.val().name.checkCounter,
-		// textInput: childSnapshot.val().name.textInput
-		
 	}
 	firebaseArray.push(childSnapshot);
 	
@@ -147,19 +166,11 @@ database.ref().on("child_added", function(childSnapshot) {
 	checkCounter++;
 	toDoCount++;
 
-	// console.log(XButton.attr("toDo"));
-
 	arrayCount++;
 
-	// console.log(arrayCount);
-
-
-}, function (errorObject) {
-
+	}, function (errorObject) {
 		// In case of error this will print the error
 	  	console.log("The read failed: " + errorObject.code);
-	
-
 	})
 
 $(document.body).on('click', '.xyz', function () {
@@ -197,8 +208,7 @@ $('#text-input').keypress(function(e) {
 		toDo: toDoCount + 1
 		}
 	});
-
-  }
+  }  
 });
 
 $(".button-collapse").sideNav();
