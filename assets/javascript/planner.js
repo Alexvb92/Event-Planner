@@ -198,10 +198,6 @@ function weatherb(){
 				newDay.append(newDayContent);
 				$("#planner").append(newDay);
 			}
-			for(i=0; i < 5; i++) {
-				$('#newDayContent').append('<div>' + localStorage.getItem('day1ActivityInput' + i) + '</div>');
-			}
-			
 		});
 	}
 }
@@ -210,17 +206,16 @@ var storageCount = 0;
 var storageArray = [];
 
 //Planner "toDo List" entry
-$('#day1ActivityInput').keypress(function(e) {
+$('#planner').keypress(function(e) {
 	if(e.which == 13) {
 		var textInput = $("#day1ActivityInput").val().trim();
 		var newLine = $("<p>");
 		$("#day1ActivityInput").append(newLine);
 		$("#day1ActivityInput").val('');
 		$('#newDayContent').append(textInput + "<br>");
-	
-		localStorage.setItem('day1ActivityInput', textInput);
 		storageCount++;
 		storageArray.push(textInput);
+		localStorage.setItem('day1ActivityInput', storageArray);
 	}
 });
 
