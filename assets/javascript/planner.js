@@ -1,6 +1,3 @@
-// $( document ).ready(function() {
-//     console.log( "ready!" );
-
 // initiate database
 var config = {
 	apiKey: "AIzaSyBadNobcnUDFdZpD_h7AFyn-V5AhLV4M34",
@@ -13,10 +10,6 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-// variables
-var destination = "";
-var startDate = "";
-var endDate = "";
 
 // button clicks
 $('#startButton').on('click', function () {
@@ -39,7 +32,6 @@ $('.datepicker').pickadate({
     format: 'm/d/yy',
 });
 
-// make this only run on a certain page?
 // populates nav bar
 $(".destinationDisplay").html(localStorage.getItem("destination"));
 $(".startDateDisplay").html(moment(localStorage.getItem("startDate")).format("M/D/YY"));
@@ -151,13 +143,13 @@ function weatherb(){
 	var coordinates = localStorage.getItem("destinationLat") + "," + localStorage.getItem("destinationLong");
 	var days = moment(localStorage.getItem("endDate")).diff(moment(localStorage.getItem("startDate")), "days") + 1;
 	var key = "1d150de371b4d1a3"
-	var weatherForecastURL = "http://api.wunderground.com/api/" + key + "/forecast10day/geolookup/q/" + coordinates + ".json";
+	var weatherForecastURL = "https://api.wunderground.com/api/" + key + "/forecast10day/geolookup/q/" + coordinates + ".json";
 
 	// generates weather summary if forecast is unavailable
 	if (localStorage.getItem("startDate") > moment().add(10, "days").format("M/D/YY")) {
 		var dateHistoricalStart = moment(localStorage.getItem("startDate")).format("MMDD");
 		var dateHistoricalEnd = moment(localStorage.getItem("endDate")).format("MMDD");
-		var weatherPlannerURL = "http://api.wunderground.com/api/" + key + "/planner_" + dateHistoricalStart + dateHistoricalEnd + "/q/" + coordinates + ".json";
+		var weatherPlannerURL = "https://api.wunderground.com/api/" + key + "/planner_" + dateHistoricalStart + dateHistoricalEnd + "/q/" + coordinates + ".json";
 
 		$.ajax({url: weatherPlannerURL, method: 'GET'}).done(function(response) {
 			var high = response.trip.temp_high.avg.F;
@@ -188,7 +180,6 @@ function weatherb(){
 	// generates actual forecast
 	else {
 		$.ajax({url: weatherForecastURL, method: 'GET'}).done(function(response) {	
-			console.log(response);
 			for (var i = 1; i <= days; i++) {
 				var newDay = $("<div>");
 				var newDayContent = $("<div id='newDayContent'>");
@@ -314,7 +305,7 @@ $('#text-input').keypress(function(e) {
   }  
 });
 
-$(".button-collapse").sideNav();
+$(".button-collapse").sideNav(); //Enables the slide out menu on mobile
 
 function initAutocomplete1() {
     var map = new google.maps.Map(document.getElementById('mapStart'), {
