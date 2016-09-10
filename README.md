@@ -17,7 +17,15 @@ futuregeese
 * JS
 * jQuery
 * Firebase
+* AJAX
+* JSON
+* Firebase
+* Materialize
+* pickadate.js
+* moment.js
+
 
 ## APIs
 * Google Maps
+* Google Places
 * Weather Underground
