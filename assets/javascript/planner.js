@@ -5,7 +5,7 @@ var config = {
 	databaseURL: "https://gottogo-dbe65.firebaseio.com",
 	storageBucket: "gottogo-dbe65.appspot.com",
 };
-  
+
 firebase.initializeApp(config);
 
 var database = firebase.database();
@@ -19,7 +19,7 @@ $('#startButton').on('click', function () {
 	endDate = $('#endDate').val();
 
 	localStorage.clear();
-	localStorage.setItem("destination", destination); 
+	localStorage.setItem("destination", destination);
 	localStorage.setItem("startDate", startDate);
 	localStorage.setItem("endDate", endDate);
 })
@@ -47,7 +47,7 @@ var key1 = 'AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA';
 var URL1 =  "https://maps.googleapis.com/maps/api/geocode/json?address=" + destination + "&key=" + key1;
 var google;
 
-$.ajax({url: URL1, method: 'GET'}).done(function(response1) { 
+$.ajax({url: URL1, method: 'GET'}).done(function(response1) {
 
   	lat1 = Number(response1.results[0].geometry.location.lat);
    	long1 = Number(response1.results[0].geometry.location.lng);
@@ -66,7 +66,7 @@ function weatherUnderground(){
 	var weatherForecastURL = "https://api.wunderground.com/api/" + key + "/forecast10day/geolookup/q/" + coordinates + ".json";
 
 	// generates weather summary if forecast is unavailable (see line below)
-	if (localStorage.getItem("startDate") > moment().add(10, "days").format("M/D/YY")) {
+	if (localStorage.getItem("startDate") > moment().add(10, "days").format("MM/DD/YY")) {
 		var dateHistoricalStart = moment(localStorage.getItem("startDate")).format("MMDD");
 		var dateHistoricalEnd = moment(localStorage.getItem("endDate")).format("MMDD");
 		var weatherPlannerURL = "https://api.wunderground.com/api/" + key + "/planner_" + dateHistoricalStart + dateHistoricalEnd + "/q/" + coordinates + ".json";
@@ -99,7 +99,7 @@ function weatherUnderground(){
 
 	// generates actual forecast
 	else {
-		$.ajax({url: weatherForecastURL, method: 'GET'}).done(function(response) {	
+		$.ajax({url: weatherForecastURL, method: 'GET'}).done(function(response) {
 			for (var i = 1; i <= days; i++) {
 				var newDay = $("<div>");
 				var newDayContent = $("<div id='newDayContent'>");
@@ -146,7 +146,7 @@ database.ref().on("child_added", function(childSnapshot) {
 		arrayCounter: arrayCount,
 	}
 	firebaseArray.push(childSnapshot);
-	
+
 	newLine = $('<p id="newEntry" class="col s11"><input type="checkbox" id="test' + childSnapshot.val().name.checkCounter + '" /><label id="textInput" for="test' + childSnapshot.val().name.checkCounter + '">' + childSnapshot.val().name.textInput + '</label></p>');
 	$('#tBody').prepend(newLine);
 	newLine.attr("id", "item-" + toDoCount);
@@ -200,16 +200,16 @@ $('#text-input').keypress(function(e) {
 				toDo: toDoCount + 1
 			}
 		});
-	}  
+	}
 });
 
 // enables slide out menu on mobile
-$(".button-collapse").sideNav(); 
+$(".button-collapse").sideNav();
 
 // generates map on index.html
 function initAutocomplete1() {
     var map = new google.maps.Map(document.getElementById('mapStart'), {
-      
+
         center: {lat: 35.9132, lng: -79.0558},
         zoom: 7,
         disableDefaultUI: true,
