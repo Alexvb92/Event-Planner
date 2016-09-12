@@ -16,9 +16,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.14.1/moment.min.js"></script>
 
 </head>
-	<body>
+<body>
 
-	<style>      
+<style>      
 	#pac-input1 {
 	    background-color: white;
 	    font-family: Roboto;
@@ -32,148 +32,148 @@
 	    position: absolute;
 	    color: black; 
 	}
-	</style>
+</style>
 
-	<div class="navbar-fixed">
-	    <nav>
-	        <div class="nav-wrapper orange darken-4">
-	            <a id="tripHeader"><span class="orange-text text-accent-1">to go</span><span class="hide-on-med-and-down"> Your trip to <span class="destinationDisplay">[Destination]</span> from <span class="startDateDisplay">[MM/DD/YY]</span> to <span class="endDateDisplay">[MM/DD/YY]</span></span></a>
-	            <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
-	            <ul class="right hide-on-med-and-down">
-	                <li><a href="about.html">About</a></li>
-	                <li><a class="waves-effect waves-light btn orange darken-1" onclick="Materialize.toast('Your trip has been saved.', 2000, 'toaster')">Save trip</a></li>
-	            </ul>
-	            <ul class="side-nav" id="mobile-demo">
-	                <li>
-	                    <div id="sideTrip">
-	                        <p><span class="destinationDisplay">[Destination]</span><br><span class="startDateDisplay">[MM/DD/YY]</span> - <span class="endDateDisplay">[MM/DD/YY]</span></p>
-	                    </div>
-	                </li>
-	                <li><div class="divider"></div></li>
-	                <li><a href="about.html">About</a></li>
-	                <li><a class="waves-effect waves-light btn orange darken-1" onclick="Materialize.toast('Your trip has been saved.', 2000, 'toaster')">Save trip</a></li>
-	            </ul>
-	        </div>
-	    </nav>
-	</div>
+<div class="navbar-fixed">
+    <nav>
+        <div class="nav-wrapper orange darken-4">
+            <a id="tripHeader"><span class="orange-text text-accent-1">to go</span><span class="hide-on-med-and-down"> Your trip to <span class="destinationDisplay">[Destination]</span> from <span class="startDateDisplay">[MM/DD/YY]</span> to <span class="endDateDisplay">[MM/DD/YY]</span></span></a>
+            <a href="#" data-activates="mobile-demo" class="right button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="about.html">About</a></li>
+                <li><a class="waves-effect waves-light btn orange darken-1" onclick="Materialize.toast('Your trip has been saved.', 2000, 'toaster')">Save trip</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    <div id="sideTrip">
+                        <p><span class="destinationDisplay">[Destination]</span><br><span class="startDateDisplay">[MM/DD/YY]</span> - <span class="endDateDisplay">[MM/DD/YY]</span></p>
+                    </div>
+                </li>
+                <li><div class="divider"></div></li>
+                <li><a href="about.html">About</a></li>
+                <li><a class="waves-effect waves-light btn orange darken-1" onclick="Materialize.toast('Your trip has been saved.', 2000, 'toaster')">Save trip</a></li>
+            </ul>
+        </div>
+    </nav>
+</div>
 
-	<div class="row">
-	    <div class="col m6 s12">
-	      	<div class="row">
-	        	<div class="col s12">
-	            	<ul class="tabs">
-		                <li class="tab col s6"><a href="#planner">Planner</a></li>
-		                <li class="tab col s6"><a href="#toDo">To Do</a></li>
-	            	</ul>
-	          	</div>
-	          	<div id="planner" class="col s12"></div>
-	          	<div id="toDo" class="col s12">
-	           		<div class="toDo-entry">
-	            		<div class="card-content black-text">
-	              			<div class="input-field col s12">
-	                    		<input id="text-input" type="text" class="validate">
-	                    		<label for="text-input">What else are you thinking about?</label>
-	                  		</div>
-	            		</div>
-	          		</div>
-	            	<div class="row">
-		           		<div>
-		            		<table>
-		                		<tbody id="tBody" class="col s6"></tbody>
-		                	</table>
-		            	</div>
-		        	</div>
-		    	</div>
-			</div>
-	    </div>
-	    <div class="col m6 s12">
-	        <div id="mapMain"></div>
-	            <div class='pacover'> <input id="pac-input1" class="controls" type="text" placeholder="Search"> </div>
+<div class="row">
+    <div class="col m6 s12">
+      	<div class="row">
+        	<div class="col s12">
+            	<ul class="tabs">
+	                <li class="tab col s6"><a href="#planner">Planner</a></li>
+	                <li class="tab col s6"><a href="#toDo">To Do</a></li>
+            	</ul>
+          	</div>
+          	<div id="planner" class="col s12"></div>
+          	<div id="toDo" class="col s12">
+           		<div class="toDo-entry">
+            		<div class="card-content black-text">
+              			<div class="input-field col s12">
+                    		<input id="text-input" type="text" class="validate">
+                    		<label for="text-input">What else are you thinking about?</label>
+                  		</div>
+            		</div>
+          		</div>
+            	<div class="row">
+	           		<div>
+	            		<table>
+	                		<tbody id="tBody" class="col s6"></tbody>
+	                	</table>
+	            	</div>
+	        	</div>
+	    	</div>
+		</div>
+    </div>
+    <div class="col m6 s12">
+        <div id="mapMain"></div>
+            <div class='pacover'> <input id="pac-input1" class="controls" type="text" placeholder="Search"></div>
 			<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQEj4ozak2ZfYSTfrVB8nEhOnHe4dUWSA&libraries=places" async defer></script>
-	    </div>
-	</div>
-	<script src="assets/javascript/planner.js"></script>
-	<script>
-		function initAutocomplete() {
-    var map = new google.maps.Map(document.getElementById('mapMain'), {
-      	 center: {lat: lat1, lng: long1},
-     	 zoom: 14,
- 	 	 disableDefaultUI: true,
-    	 mapTypeId: 'roadmap'
-    });
+    </div>
+</div>
 
-    // Create the search box and link it to the UI element.
-    var input = document.getElementById('pac-input1');
-    var searchBox = new google.maps.places.SearchBox(input);
-    map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+<script src="assets/javascript/planner.js"></script>
+<script>
+	function initAutocomplete() {
+		var map = new google.maps.Map(document.getElementById('mapMain'), {
+	  		center: {lat: lat1, lng: long1},
+	 		zoom: 14,
+		 	disableDefaultUI: true,
+		 	mapTypeId: 'roadmap'
+		});
 
-    // Bias the SearchBox results towards current map's viewport.
-    map.addListener('bounds_changed', function() {
-      searchBox.setBounds(map.getBounds());
-    });
+		// Create the search box and link it to the UI element.
+		var input = document.getElementById('pac-input1');
+		var searchBox = new google.maps.places.SearchBox(input);
+		map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
-    var markers = [];
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
-    searchBox.addListener('places_changed', function() {
-      var places = searchBox.getPlaces();
+		// Bias the SearchBox results towards current map's viewport.
+		map.addListener('bounds_changed', function() {
+			searchBox.setBounds(map.getBounds());
+		});
 
-      if (places.length == 0) {
-        return;
-      }
+		var markers = [];
+		// Listen for the event fired when the user selects a prediction and retrieve more details for that place.
+		searchBox.addListener('places_changed', function() {
+				var places = searchBox.getPlaces();
 
-      // Clear out the old markers.
-      markers.forEach(function(marker) {
-        marker.setMap(null);
-      });
-      markers = [];
+				if (places.length == 0) {
+					return;
+				}
 
-      // For each place, get the icon, name and location.
-      var bounds = new google.maps.LatLngBounds();
+		  		// Clear out the old markers.
+		  		markers.forEach(function(marker) {
+		    		marker.setMap(null);
+		  		});
+		  		markers = [];
 
-      places.forEach(function(place) {
-        if (!place.geometry) {
-          console.log("Returned place contains no geometry");
-          return;
-        }
-        var icon = {
-          url: place.icon,
-          size: new google.maps.Size(71, 71),
-          origin: new google.maps.Point(0, 0),
-          anchor: new google.maps.Point(17, 34),
-          scaledSize: new google.maps.Size(25, 25)
-        };
+		  		// For each place, get the icon, name and location.
+		  		var bounds = new google.maps.LatLngBounds();
 
-        // Create a marker for each place.
-        markers.push(new google.maps.Marker({
-          map: map,
-          icon: icon,
-          title: place.name,
-          position: place.geometry.location
-        }));
+		  		places.forEach(function(place) {
+		    		if (!place.geometry) {
+		     			console.log("Returned place contains no geometry");
+		      			return;
+		    		}
+		    	var icon = {
+					url: place.icon,
+					size: new google.maps.Size(71, 71),
+					origin: new google.maps.Point(0, 0),
+					anchor: new google.maps.Point(17, 34),
+					scaledSize: new google.maps.Size(25, 25)
+				};
 
-        if (place.geometry.viewport) {
-          // Only geocodes have viewport.
-          bounds.union(place.geometry.viewport);
-        } else {
-          bounds.extend(place.geometry.location);
-        }
+				// Create a marker for each place.
+				markers.push(new google.maps.Marker({
+					map: map,
+					icon: icon,
+					title: place.name,
+					position: place.geometry.location
+				}));
 
-      });
-      map.fitBounds(bounds);
-    });
-  }
+				if (place.geometry.viewport) {
+					// Only geocodes have viewport.
+					bounds.union(place.geometry.viewport);
+				} else {
+					bounds.extend(place.geometry.location);
+				}
+		  	});
+		  	map.fitBounds(bounds);
+		});
+	}
 
-  google.maps.event.addListener(marker, 'click', function() {
-    service.getDetails(place, function(result, status) {
-      if (status !== google.maps.places.PlacesServiceStatus.OK) {
-        console.error(status);
-        return;
-      }
-      infoWindow.setContent(result.name);
-      infoWindow.open(map, marker);
-   });
-});
-	</script>
-	</body>
+	google.maps.event.addListener(marker, 'click', function() {
+		service.getDetails(place, function(result, status) {
+			if (status !== google.maps.places.PlacesServiceStatus.OK) {
+		   		console.error(status);
+		   		return;
+			}
+		  	infoWindow.setContent(result.name);
+		  	infoWindow.open(map, marker);
+		});
+	});
+</script>
+
+</body>
 </html>
